@@ -1,0 +1,31 @@
+#Sarwar Ahmed 56th(232-141-007)
+#M.H. Shohag 56th(232-141-006)
+import math
+
+crystal_structure = input("Enter crystal structure (BCC/FCC): ").strip().upper()
+
+rho = float(input("Density (kg/m^3): "))
+M = float(input("Atomic mass (kg/mol): "))
+Na = 6.023e23
+
+if crystal_structure == "BCC":
+    n = 2
+elif crystal_structure == "FCC":
+    n = 4
+else:
+    print("Invalid crystal type.")
+    exit()
+
+a_cubed = (n * M) / (rho * Na)
+a = a_cubed ** (1/3)
+
+if crystal_structure == "BCC":
+    R = (math.sqrt(3) * a) / 4
+else:
+    R = (math.sqrt(2) * a) / 4
+
+atomic_conc = (n / (a ** 3)) / 1e6
+
+print("Lattice parameter a (m):", a)
+print("Atomic radius R (m):", R)
+print("Atomic concentration (atoms/cm^3):", atomic_conc)
